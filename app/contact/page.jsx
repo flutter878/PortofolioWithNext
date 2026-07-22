@@ -37,7 +37,7 @@ const contactInfo = [
 const socials = [
   {
     icon: FaGithub,
-    href: "https://github.com/musliadi",
+    href: "https://github.com/flutter878",
     label: "GitHub",
   },
   {
