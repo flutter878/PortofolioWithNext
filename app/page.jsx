@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa6";
 
 const socials = [
-  { icon: FaGithub, href: "https://github.com/musliadi", label: "GitHub" },
+  { icon: FaGithub, href: "https://github.com/flutter878", label: "GitHub" },
   {
     icon: FaLinkedinIn,
     href: "https://linkedin.com/in/musliadi",
