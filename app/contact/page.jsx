@@ -42,10 +42,10 @@ const socials = [
   },
   {
     icon: FaLinkedinIn,
-    href: "https://linkedin.com/in/musliadi",
+    href: "https://www.linkedin.com/in/musliadi-as-ad-bbb39b373/",
     label: "LinkedIn",
   },
-  { icon: FaInstagram, href: "#", label: "Instagram" },
+  { icon: FaInstagram, href: "https://www.instagram.com/musliadi_as/", label: "Instagram" },
   { icon: FaXTwitter, href: "#", label: "Twitter" },
 ];
 
