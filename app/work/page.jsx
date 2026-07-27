@@ -2,73 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
-
-const categories = ["All", "Web App", "API", "UI/UX"];
-
-const projectsData = [
-  {
-    title: "Admin Dashboard",
-    category: "Web App",
-    description:
-      "Admin dashboard system with data management features, user authentication, and CRUD operations built with Next.js and Supabase.",
-    tech: ["Next.js", "Supabase", "Tailwind CSS", "JavaScript"],
-    gradient: "from-emerald-500 to-teal-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Ticket Booking System",
-    category: "Web App",
-    description:
-      "Web-based ticket booking application with seat selection, payment integration, and booking management features.",
-    tech: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
-    gradient: "from-blue-500 to-indigo-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Data Management System",
-    category: "Web App",
-    description:
-      "Comprehensive data management platform for organizing, filtering, and exporting structured data with reporting capabilities.",
-    tech: ["Next.js", "PostgreSQL", "Node.js", "Tailwind CSS"],
-    gradient: "from-purple-500 to-pink-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "REST API Service",
-    category: "API",
-    description:
-      "Scalable RESTful API with authentication, CRUD endpoints, and database integration built using Laravel and MySQL.",
-    tech: ["Laravel", "MySQL", "Postman"],
-    gradient: "from-orange-500 to-red-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Brand Identity Design",
-    category: "UI/UX",
-    description:
-      "Logo design and visual identity development for businesses, including typography selection, color theory, and brand consistency.",
-    tech: ["Figma", "Adobe Illustrator", "CorelDRAW"],
-    gradient: "from-cyan-500 to-blue-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Marketing Collateral",
-    category: "UI/UX",
-    description:
-      "Printed and digital promotional materials including banners, posters, flyers, and social media content for various clients.",
-    tech: ["Adobe Illustrator", "Canva", "CorelDRAW"],
-    gradient: "from-rose-500 to-amber-600",
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-];
+import { projectsData, categories } from "@/lib/projects";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -162,55 +98,67 @@ export default function Work() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="group bg-surface border border-border rounded-2xl overflow-hidden hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all duration-300"
               >
-                {/* Thumbnail */}
-                <div
-                  className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
-                >
-                  <span className="text-4xl font-bold text-white/20 select-none">
-                    {project.title.charAt(0)}
-                  </span>
-                  <div className="absolute inset-0 bg-overlay-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-colors"
-                    >
-                      <FiExternalLink />
-                    </Link>
-                    <Link
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-colors"
-                    >
-                      <FiGithub />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <span className="text-xs text-emerald-500 font-medium uppercase tracking-wider">
-                    {project.category}
-                  </span>
-                  <h3 className="text-lg font-semibold mt-1 mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
+                <Link href={`/work/${project.slug}`}>
+                  {/* Thumbnail */}
+                  <div
+                    className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}
+                  >
+                    <span className="text-4xl font-bold text-white/20 select-none">
+                      {project.title.charAt(0)}
+                    </span>
+                    <div className="absolute inset-0 bg-overlay-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.open(project.liveUrl, "_blank");
+                        }}
+                        className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-colors cursor-pointer"
                       >
-                        {tech}
-                      </span>
-                    ))}
+                        <FiExternalLink />
+                      </div>
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.open(project.githubUrl, "_blank");
+                        }}
+                        className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-colors cursor-pointer"
+                      >
+                        <FiGithub />
+                      </div>
+                    </div>
                   </div>
-                </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="text-xs text-emerald-500 font-medium uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                    <h3 className="text-lg font-semibold mt-1 mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
+                          +{project.tech.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-sm text-emerald-500 font-medium group-hover:gap-2 transition-all">
+                      View Details <FiArrowRight />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>
