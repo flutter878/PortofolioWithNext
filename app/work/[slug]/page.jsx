@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
 import { projectsData } from "@/lib/projects";
+import { getTechIcon } from "@/lib/tech-icons";
 
 export function generateStaticParams() {
   return projectsData.map((project) => ({
@@ -111,14 +112,18 @@ export default function ProjectDetail({ params }) {
         <section className="mb-10">
           <h2 className="text-xl font-semibold mb-4">Tech Stack</h2>
           <div className="flex flex-wrap gap-3">
-            {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 bg-surface border border-border rounded-full text-sm font-medium"
-              >
-                {tech}
-              </span>
-            ))}
+            {project.tech.map((tech) => {
+              const Icon = getTechIcon(tech);
+              return (
+                <span
+                  key={tech}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-surface border border-border rounded-full text-sm font-medium"
+                >
+                  {Icon && <Icon className="text-lg shrink-0" />}
+                  {tech}
+                </span>
+              );
+            })}
           </div>
         </section>
 

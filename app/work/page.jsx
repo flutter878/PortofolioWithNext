@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 import { projectsData, categories } from "@/lib/projects";
+import { getTechIcon } from "@/lib/tech-icons";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -140,17 +141,22 @@ export default function Work() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.tech.length > 3 && (
-                        <span className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground">
-                          +{project.tech.length - 3}
+                      {project.tech.slice(0, 4).map((tech) => {
+                        const Icon = getTechIcon(tech);
+                        return (
+                          <span
+                            key={tech}
+                            className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-muted text-muted-foreground"
+                            title={tech}
+                          >
+                            {Icon && <Icon className="text-sm shrink-0" />}
+                            <span className="hidden sm:inline">{tech}</span>
+                          </span>
+                        );
+                      })}
+                      {project.tech.length > 4 && (
+                        <span className="text-xs px-3 py-1.5 rounded-full bg-muted text-muted-foreground">
+                          +{project.tech.length - 4}
                         </span>
                       )}
                     </div>
