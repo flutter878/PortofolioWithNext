@@ -1,17 +1,60 @@
 @import "tailwindcss";
 
-/* ============================= */
-/* BASE STYLE (HTML global) */
-/* ============================= */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--bg-page);
+  --color-foreground: var(--text-foreground);
+  --color-surface: var(--bg-surface);
+  --color-muted: var(--bg-muted);
+  --color-muted-foreground: var(--text-muted-foreground);
+  --color-border: var(--border-default);
+  --color-border-muted: var(--border-muted);
+  --color-input: var(--border-default);
+  --color-overlay: var(--bg-overlay);
+  --color-overlay-light: var(--bg-overlay-light);
+  --color-primary: #10b981;
+  --color-primary-foreground: #000000;
+  --color-accent: #10b981;
+  --color-accent-foreground: #000000;
+  --color-ring: #10b981;
+}
+
+:root {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-muted: #e5e7eb;
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+  --bg-overlay-light: rgba(255, 255, 255, 0.4);
+  --text-foreground: #111827;
+  --text-muted-foreground: #6b7280;
+  --border-default: #e5e7eb;
+  --border-muted: #d1d5db;
+}
+
+.dark {
+  --bg-page: #1c1c22;
+  --bg-surface: rgba(17, 24, 39, 0.5);
+  --bg-muted: #1f2937;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --bg-overlay-light: rgba(0, 0, 0, 0.4);
+  --text-foreground: #f3f4f6;
+  --text-muted-foreground: #9ca3af;
+  --border-default: #1f2937;
+  --border-muted: #4b5563;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #1c1c22;
+    background-color: var(--bg-page);
     font-family: var(--font-jetbrains-mono);
-    @apply text-gray-100 antialiased;
+    color: var(--text-foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   * {
@@ -19,21 +62,13 @@
   }
 }
 
-/* ============================= */
-/* COMPONENT STYLE */
-/* ============================= */
 @layer components {
-  /* contoh component reusable */
   .container-custom {
     @apply max-w-7xl mx-auto px-4;
   }
 }
 
-/* ============================= */
-/* CUSTOM UTILITIES */
-/* ============================= */
 @layer utilities {
-  /* custom font */
   .font-primary {
     font-family: "Poppins", sans-serif;
   }
@@ -42,11 +77,6 @@
     font-family: var(--font-jetbrains-mono);
   }
 
-  .bg-primary {
-    background-color: #1c1c22;
-  }
-
-  /* hide scrollbar */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }

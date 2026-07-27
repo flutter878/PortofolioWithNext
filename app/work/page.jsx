@@ -119,7 +119,7 @@ export default function Work() {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 text-sm sm:text-base leading-relaxed"
+            className="text-muted-foreground text-sm sm:text-base leading-relaxed"
           >
             A collection of projects I have worked on as a Fullstack Web
             Developer and Graphic Designer.
@@ -138,7 +138,7 @@ export default function Work() {
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
                   ? "bg-emerald-500 text-black"
-                  : "bg-gray-900/50 border border-gray-800 text-gray-400 hover:border-emerald-500/50 hover:text-emerald-500"
+                  : "bg-surface border border-border text-muted-foreground hover:border-emerald-500/50 hover:text-emerald-500"
               }`}
             >
               {cat}
@@ -160,7 +160,7 @@ export default function Work() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="group bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all duration-300"
+                className="group bg-surface border border-border rounded-2xl overflow-hidden hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all duration-300"
               >
                 {/* Thumbnail */}
                 <div
@@ -169,7 +169,7 @@ export default function Work() {
                   <span className="text-4xl font-bold text-white/20 select-none">
                     {project.title.charAt(0)}
                   </span>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  <div className="absolute inset-0 bg-overlay-light opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                     <Link
                       href={project.liveUrl}
                       target="_blank"
@@ -197,14 +197,14 @@ export default function Work() {
                   <h3 className="text-lg font-semibold mt-1 mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-400"
+                        className="text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground"
                       >
                         {tech}
                       </span>

@@ -94,7 +94,7 @@ export default function Services() {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 text-sm sm:text-base leading-relaxed"
+            className="text-muted-foreground text-sm sm:text-base leading-relaxed"
           >
             I provide a wide range of web development services to help bring
             your ideas to life with modern technology and best practices.
@@ -112,7 +112,7 @@ export default function Services() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all duration-300"
+                className="group bg-surface border border-border rounded-2xl p-8 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/5 transition-all duration-300"
               >
                 <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500 mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300">
                   <Icon className="text-2xl" />
@@ -120,7 +120,7 @@ export default function Services() {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-emerald-500 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -133,7 +133,7 @@ export default function Services() {
           variants={itemVariants}
           className="text-center mt-16"
         >
-          <p className="text-gray-400 mb-6">
+          <p className="text-muted-foreground mb-6">
             Interested in working together?
           </p>
           <Link href="/contact">

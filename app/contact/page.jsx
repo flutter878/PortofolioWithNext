@@ -91,7 +91,7 @@ export default function Contact() {
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 text-sm sm:text-base leading-relaxed"
+            className="text-muted-foreground text-sm sm:text-base leading-relaxed"
           >
             Have a project in mind or just want to say hi? Fill out the form
             below and I&apos;ll get back to you as soon as possible.
@@ -112,13 +112,13 @@ export default function Contact() {
                   href={info.href}
                   target={info.href === "#" ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 bg-gray-900/50 border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300 group"
+                  className="flex items-center gap-4 bg-surface border border-border rounded-xl p-5 hover:border-emerald-500/50 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-all duration-300">
                     <Icon className="text-xl" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">
                       {info.label}
                     </p>
                     <p className="text-sm font-medium mt-0.5">{info.value}</p>
@@ -129,7 +129,7 @@ export default function Contact() {
 
             {/* Social */}
             <div className="pt-4">
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-4">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">
                 Follow Me
               </p>
               <div className="flex gap-3">
@@ -142,7 +142,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-gray-400 hover:border-emerald-500 hover:text-emerald-500 hover:-translate-y-1 transition-all duration-300"
+                      className="w-10 h-10 flex items-center justify-center rounded-full border border-muted text-muted-foreground hover:border-emerald-500 hover:text-emerald-500 hover:-translate-y-1 transition-all duration-300"
                     >
                       <Icon />
                     </Link>
@@ -155,38 +155,38 @@ export default function Contact() {
           {/* Contact Form */}
           <motion.form
             variants={itemVariants}
-            className="lg:col-span-3 bg-gray-900/50 border border-gray-800 rounded-2xl p-8 space-y-6"
+            className="lg:col-span-3 bg-surface border border-border rounded-2xl p-8 space-y-6"
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm text-gray-400">Name</label>
+                <label className="text-sm text-muted-foreground">Name</label>
                 <Input
                   placeholder="Your name"
-                  className="bg-gray-950 border-gray-800 focus:border-emerald-500 text-white placeholder:text-gray-600"
+                  className="bg-muted border-border focus:border-emerald-500 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm text-gray-400">Email</label>
+                <label className="text-sm text-muted-foreground">Email</label>
                 <Input
                   type="email"
                   placeholder="your@email.com"
-                  className="bg-gray-950 border-gray-800 focus:border-emerald-500 text-white placeholder:text-gray-600"
+                  className="bg-muted border-border focus:border-emerald-500 text-foreground placeholder:text-muted-foreground"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-gray-400">Subject</label>
+              <label className="text-sm text-muted-foreground">Subject</label>
               <Input
                 placeholder="What's this about?"
-                className="bg-gray-950 border-gray-800 focus:border-emerald-500 text-white placeholder:text-gray-600"
+                className="bg-muted border-border focus:border-emerald-500 text-foreground placeholder:text-muted-foreground"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-gray-400">Message</label>
+              <label className="text-sm text-muted-foreground">Message</label>
               <Textarea
                 placeholder="Tell me about your project..."
                 rows={6}
-                className="bg-gray-950 border-gray-800 focus:border-emerald-500 text-white placeholder:text-gray-600 resize-none"
+                className="bg-muted border-border focus:border-emerald-500 text-foreground placeholder:text-muted-foreground resize-none"
               />
             </div>
             <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-6 rounded-xl group">

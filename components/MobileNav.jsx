@@ -38,7 +38,7 @@ const MobileNav = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col gap-8 items-center justify-center py-20">
         {/* Logo */}
-        <Link href="/" className="text-4xl font-semibold text-white">
+        <Link href="/" className="text-4xl font-semibold text-foreground">
           MUSLIADI
           <span className="text-emerald-500">.</span>
         </Link>
@@ -52,7 +52,7 @@ const MobileNav = () => {
               className={`text-xl font-medium transition-colors ${
                 pathname === link.href
                   ? "text-emerald-500 border-b-2 border-emerald-500 pb-1"
-                  : "text-white hover:text-emerald-500"
+                  : "text-foreground hover:text-emerald-500"
               }`}
             >
               {link.name}
